@@ -1,5 +1,8 @@
 # Enterprise Home Lab
 
+<img width="609" height="791" alt="image" src="https://github.com/user-attachments/assets/86c33a0a-ac7e-41f5-be84-2ab467e50e14" />
+
+
 ## Project Overview
 
 This project focuses on building a virtualized home lab to develop hands-on experience in network engineering, system administration, cybersecurity, and enterprise infrastructure while preparing for the Cisco CCNA certification.
