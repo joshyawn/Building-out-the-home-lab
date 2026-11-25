@@ -31,6 +31,23 @@ Additional error messages indicated corrupted compressed data during package ext
 
 The installation could not proceed successfully.
 
+## Troubleshooting Flowchart
+
+```mermaid
+flowchart TD
+    A[Proxmox Installation Failed] --> B[Verify ISO Checksum]
+    B --> C[ISO Verification Passed]
+    C --> D[Perform Memory Diagnostics]
+    D --> E[No Memory Errors Detected]
+    E --> F[Investigate NVMe Storage]
+    F --> G[No Apparent Storage Errors]
+    G --> H[Test on Second Intel NUC]
+    H --> I[Same Installation Failure]
+    I --> J[Replace USB Flash Drive]
+    J --> K[Successful Installation]
+    K --> L[Suspected Faulty Installation Media]
+```
+
 ## Troubleshooting Methodology
 
 I followed a systematic process to identify and isolate the potential cause of the installation failure.
