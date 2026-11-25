@@ -139,19 +139,3 @@ Successfully installed Proxmox VE using replacement USB installation media and a
 
 Proxmox VE installation was successfully completed, establishing the foundation for future virtualization, networking, and enterprise infrastructure projects.
 
-## Troubleshooting Flowchart
-
-```mermaid
-flowchart TD
-    A[Proxmox Installation Failed] --> B[Verify ISO Checksum]
-    B --> C[ISO Verification Passed]
-    C --> D[Perform Memory Diagnostics]
-    D --> E[No Memory Errors Detected]
-    E --> F[Investigate NVMe Storage]
-    F --> G[No Apparent Storage Errors]
-    G --> H[Test on Second Intel NUC]
-    H --> I[Same Installation Failure]
-    I --> J[Replace USB Flash Drive]
-    J --> K[Successful Installation]
-    K --> L[Suspected Faulty Installation Media]
-```
