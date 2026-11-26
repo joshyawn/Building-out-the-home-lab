@@ -1,0 +1,38 @@
+## Linux Storage Management (LVM)
+
+### Initial Configuration
+
+The Ubuntu Server VM was provisioned with a 40 GiB
+virtual disk. However, the default guided LVM
+installation allocated only 19 GiB to the root
+logical volume.
+
+### Investigation
+
+The following commands were used to inspect
+disk and LVM allocation:
+
+- `lsblk`
+- `df -h`
+- `sudo pvs`
+- `sudo vgs`
+- `sudo lvs`
+
+The investigation identified 19 GiB of unallocated
+space within the ubuntu-vg volume group.
+
+### Resolution
+
+Extended the root logical volume and resized
+the filesystem using:
+
+    sudo lvextend -l +100%FREE -r /dev/ubuntu-vg/ubuntu-lv
+
+### Skills Demonstrated
+
+- Linux filesystem management
+- Logical Volume Manager (LVM)
+- Storage capacity analysis
+- Logical volume expansion
+- Online filesystem resizing
+- Command-line administration
