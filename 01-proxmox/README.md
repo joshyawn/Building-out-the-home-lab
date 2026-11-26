@@ -131,9 +131,9 @@ Successfully installed Proxmox VE using replacement USB installation media and a
 - [x] Test on secondary hardware
 - [x] Replace installation media
 - [x] Successfully install Proxmox VE
-- [ ] Establish network connectivity
-- [ ] Validate web management interface
-- [ ] Deploy first virtual machine
+- [x] Establish network connectivity
+- [x] Validate web management interface
+- [x] Deploy first virtual machine
 
 ## Outcome
 
