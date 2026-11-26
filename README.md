@@ -47,7 +47,7 @@ This project focuses on building a virtualized home lab to develop hands-on expe
 ## Project Progress
 
 - [x] Install Proxmox VE on primary NUC
-- [ ] Establish network connectivity
+- [x] Establish network connectivity
 - [ ] Configure Proxmox web management
 - [ ] Deploy Ubuntu Server VM
 - [ ] Install Docker and Docker Compose
