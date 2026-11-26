@@ -1,32 +1,50 @@
-## Linux Storage Management (LVM)##
+## Linux Storage Management (LVM)
 
 ### Initial Configuration
 
-The Ubuntu Server VM was provisioned with a 40 GiB
-virtual disk. However, the default guided LVM
-installation allocated only 19 GiB to the root
-logical volume.
+The Ubuntu Server VM was provisioned with a 40 GiB virtual disk. However, the default guided LVM installation allocated only 19 GiB to the root logical volume.
 
 ### Investigation
 
-The following commands were used to inspect
-disk and LVM allocation:
+The following commands were used to inspect disk and LVM allocation:
 
-- `lsblk`
-- `df -h`
-- `sudo pvs`
-- `sudo vgs`
-- `sudo lvs`
+```bash
+lsblk
+df -h
+sudo pvs
+sudo vgs
+sudo lvs
+```
 
-The investigation identified 19 GiB of unallocated
-space within the ubuntu-vg volume group.
+The investigation identified 19 GiB of unallocated space within the `ubuntu-vg` volume group.
+
+### Initial Storage Allocation
+
+| Component | Size |
+|---|---:|
+| Virtual Disk | 40 GiB |
+| Boot Partition | 2 GiB |
+| LVM Volume Group | 38 GiB |
+| Root Logical Volume | 19 GiB |
+| Unallocated LVM Space | 19 GiB |
 
 ### Resolution
 
-Extended the root logical volume and resized
-the filesystem using:
+Extended the root logical volume and resized the filesystem using the following command:
 
-    sudo lvextend -l +100%FREE -r /dev/ubuntu-vg/ubuntu-lv
+```bash
+sudo lvextend -l +100%FREE -r /dev/ubuntu-vg/ubuntu-lv
+```
+
+### Verification
+
+The following commands are used to verify the logical volume expansion and filesystem capacity:
+
+```bash
+df -h /
+sudo vgs
+sudo lvs
+```
 
 ### Skills Demonstrated
 
@@ -36,3 +54,10 @@ the filesystem using:
 - Logical volume expansion
 - Online filesystem resizing
 - Command-line administration
+
+### Lessons Learned
+
+- Virtual disk capacity and usable filesystem capacity are not necessarily the same.
+- LVM allows flexible storage allocation and expansion.
+- Storage capacity should be verified before deploying applications.
+- Logical volumes can be expanded without reinstalling the operating system.
